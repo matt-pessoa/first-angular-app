@@ -47,10 +47,10 @@ export class CustomersListComponent implements OnInit {
           cust.orderTotal.toString().indexOf(data) > -1
         );
       });
-      this.calculateOrders();
     } else {
       this.filteredCustomers = this.customers;
     }
+    this.calculateOrders();
   }
 
   sort(prop: string) {
