@@ -14,11 +14,11 @@
       <a>{{ cust.name | titlecase }}</a>
     </td>
     <td>{{ cust.city }}</td>
-    <td>{{ cust.orderTotal }}</td>
+    <td>{{ cust.orderTotal | moneySign }}</td>
   </tr>
   <tr *ngIf="filteredCustomers.length">
     <td colspan="2">&nbsp;</td>
-    <td>{{ customersOrderTotal }}</td>
+    <td>{{ customersOrderTotal | moneySign }}</td>
   </tr>
   <tr *ngIf="!filteredCustomers.length">
     <td colspan="4">No customers found</td>
