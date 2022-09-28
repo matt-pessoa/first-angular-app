@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; //child components shouldn't import BrowserModule
+//child components shouldn't import BrowserModule, but CommonModule instead
+import { CommonModule } from '@angular/common';
 
 import { CustomersComponent } from './customers.component';
 import { CustomersListComponent } from './customers-list/customers-list.component';
+import { FilterTextboxComponent } from './customers-list/filter-textbox.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [CustomersComponent, CustomersListComponent],
-  exports: [CustomersComponent, CustomersListComponent], //anyone that imports this module gets acces to CustomersComponent
+  declarations: [
+    CustomersComponent,
+    CustomersListComponent,
+    FilterTextboxComponent,
+  ],
+  //anyone that imports this module gets acces to CustomersComponent
+  exports: [CustomersComponent, CustomersListComponent, FilterTextboxComponent],
 })
 export class CustomersModule {}
