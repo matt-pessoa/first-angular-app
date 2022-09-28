@@ -1,4 +1,5 @@
-<filter-textbox></filter-textbox>
+<filter-textbox (changed)="filter($event)"></filter-textbox>
+<!-- $event -> event fired -->
 <br />
 <br />
 <table class="table table-hover">
@@ -14,11 +15,11 @@
       <a>{{ cust.name | titlecase }}</a>
     </td>
     <td>{{ cust.city }}</td>
-    <td>{{ cust.orderTotal | moneySign }}</td>
+    <td>{{ cust.orderTotal | moneySign: currecyCode }}</td>
   </tr>
   <tr *ngIf="filteredCustomers.length">
     <td colspan="2">&nbsp;</td>
-    <td>{{ customersOrderTotal | moneySign }}</td>
+    <td>{{ customersOrderTotal | moneySign: currecyCode }}</td>
   </tr>
   <tr *ngIf="!filteredCustomers.length">
     <td colspan="4">No customers found</td>

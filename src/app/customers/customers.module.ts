@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 //child components shouldn't import BrowserModule, but CommonModule instead
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +9,7 @@ import { FilterTextboxComponent } from './customers-list/filter-textbox.componen
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, FormsModule],
   declarations: [
     CustomersComponent,
     CustomersListComponent,
