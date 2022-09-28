@@ -1,6 +1,8 @@
 <section class="customers">
   <h1 [hidden]="!isVisible">{{ title }}</h1>
-  <button (click)="changeVisibility()" type="button">{{ showHide }}</button>
+  <button (click)="changeVisibility()" type="button">
+    {{ showHide }} title
+  </button>
   <br />
   <app-customers-list></app-customers-list>
 </section>
