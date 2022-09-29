@@ -22,5 +22,11 @@
     "name": "Tina Adams",
     "city": "Seattle",
     "orderTotal": 15.99
+  },
+  {
+    "id": 5,
+    "name": "Jeff Clinton",
+    "city": "New York",
+    "orderTotal": 12.79
   }
 ]
