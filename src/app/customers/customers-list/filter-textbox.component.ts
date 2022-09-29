@@ -11,11 +11,11 @@ export class FilterTextboxComponent implements OnInit {
   }
 
   set filter(value: string) {
-    this._filter = value;
-    this.changed.emit(this.filter);
+    this._filter = value; //updates the variable
+    this.changed.emit(this._filter); //emits the value of the filter to the parent component
   }
 
-  @Output() changed: EventEmitter<string> = new EventEmitter<string>();
+  @Output() changed: EventEmitter<string> = new EventEmitter<string>(); //sends the data as string
 
   constructor() {}
 
