@@ -41,6 +41,18 @@ export class DataService {
     );
   }
 
+  getOrders(id: number): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(this.baseUrl + 'orders.json').pipe(
+      map((orders) => {
+        let custOrders = orders.filter(
+          (order: IOrder) => order.customerId === id
+        );
+        return custOrders;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: any) {
     console.error('server error:', error);
     if (error.error instanceof Error) {
