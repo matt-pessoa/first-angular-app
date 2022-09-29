@@ -43,6 +43,7 @@ export class DataService {
 
   getOrders(id: number): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.baseUrl + 'orders.json').pipe(
+      //whatever is returned by the map, this is the data the caller will get when it is subscribed
       map((orders) => {
         let custOrders = orders.filter(
           (order: IOrder) => order.customerId === id
