@@ -24,6 +24,11 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = 'Customers';
+    this.dataService
+      .getCustomers() //returns an Observable (async operation)
+      .subscribe((customers: ICustomer[]) => (this.people = customers)); //subscribe to the Observable
+    //now we get the actual response and we can assign it inside this.people
+
     //instead of having a hard coded array, we can call our data service to get the customers
     // this.people = [
     //   {
