@@ -26,6 +26,21 @@ export class DataService {
     );
   }
 
+  getCustomer(id: number): Observable<ICustomer | null> {
+    //call the server and get an array of ICustomer
+    return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json').pipe(
+      //as the data is flowing through the pipe, we can get to that response data (customers)
+      map((customers) => {
+        //now as we grabbed the data, we want to filter it by the passed id
+        let customer = customers.filter((cust: ICustomer) => cust.id === id);
+        //and return the correspondent customer or null
+        return customer && customer.length ? customer[0] : null;
+      }),
+      //if there's an error, now we deal with it
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: any) {
     console.error('server error:', error);
     if (error.error instanceof Error) {
