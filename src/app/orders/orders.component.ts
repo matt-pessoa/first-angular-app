@@ -22,7 +22,6 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') || '');
 
-    console.log(this.id);
     this.dataService.getOrders(this.id).subscribe((orders: IOrder[]) => {
       this.orders = orders;
     });
