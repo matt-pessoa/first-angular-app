@@ -10,4 +10,4 @@ const routes: Routes = [{ path: 'customers', component: CustomersComponent }];
   exports: [RouterModule],
 })
 export class CustomersRoutingModule {}
-//of course we've got to declare this routingmodule inside our feature module
+//of course we've got to import this routingmodule inside our feature module
