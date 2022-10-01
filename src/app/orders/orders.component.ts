@@ -11,16 +11,26 @@ import { ICustomer, IOrder, IOrderItem } from '../shared/interfaces';
 })
 export class OrdersComponent implements OnInit {
   orders: IOrder[] = [];
-  customer!: ICustomer;
+  customer!: ICustomer | null;
+  id!: number;
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute //as the router is showing components based on url routes, //we need to go to this activatedRoute to get /:id for example
   ) {}
 
   ngOnInit() {
-    this.dataService.getCustomer(id).subscribe((customer: ICustomer) => {
-      this.customer = customer;
+    this.route.queryParams.subscribe((params) => {
+      this.id = params['id'];
     });
+    this.dataService.getOrders(this.id).subscribe((orders: IOrder[]) => {
+      this.orders = orders;
+    });
+
+    this.dataService
+      .getCustomer(this.id)
+      .subscribe((customer: ICustomer | null) => {
+        this.customer = customer;
+      });
   }
 }
